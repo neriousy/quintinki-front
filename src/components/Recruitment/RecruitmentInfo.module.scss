@@ -1,0 +1,75 @@
+.recruitmentInfoContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  position: relative;
+  top: 140px;
+
+  width: 400px;
+  height: 270px;
+
+  padding: 10px;
+  margin: 0 auto;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 30px 9px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.recruitmentState {
+  display: inline-block;
+  width: 100%;
+  color: rgb(0, 228, 0);
+  font-size: 2em;
+  text-align: center;
+}
+
+.detailList {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: stretch;
+  margin: 10px 0 5px 0;
+  height: 60%;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+.descriptionTerm {
+  flex-basis: 50%;
+  text-align: right;
+  height: fit-content;
+  font-weight: bold;
+}
+
+.descriptionDetails {
+  flex-basis: 40%;
+  flex-grow: 1;
+  margin: 0 0 0 5px;
+
+  img {
+    width: 20px;
+    height: auto;
+    position: relative;
+    top: 3px;
+  }
+}
+
+.contactButton {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

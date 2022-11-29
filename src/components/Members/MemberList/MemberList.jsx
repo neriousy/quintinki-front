@@ -7,66 +7,50 @@ import warriorIcon from '../../../assets/classIcons/warriorIcon.png';
 import martialIcon from '../../../assets/classIcons/martialIcon.png';
 
 function MemberList(){
-  const [warriorList, setWarriors] = useState([]);
-  const [archersList, setArchers] = useState([]);
-  const [magesList, setMages] = useState([]);
-  const [martialArtistsList, setMartialArtists] = useState([]);
+  const [memberList, setMembersList] = useState([]);
 
   useEffect(() =>{  // api calls going through twice??? 
-    warriors();
-    archers();
-    mages();
-    martialArtists();
+    members();
   }, []);
   
-  const warriors = async() =>{
-    const response = await fetch('http://localhost:3000/famlistApi/warriors');
-    setWarriors(await response.json());
-  };
 
-  const archers = async() =>{
-    const response = await fetch('http://localhost:3000/famlistApi/archers');
-    setArchers(await response.json());
-  };
 
-  const mages = async() =>{
-    const response = await fetch('http://localhost:3000/famlistApi/mages');
-    setMages(await response.json());
+  const members = async() =>{
+    const response = await fetch('http://localhost:3000/famlist/');
+    setMembersList(await response.json());
   };
-
-  const martialArtists = async() =>{
-    const response = await fetch('http://localhost:3000/famlistApi/martialartists');
-    setMartialArtists(await response.json());
-  };
-
 
   return(
     <section className={styles.famlistContainer}>
 
       <div className={styles.classWrapper}>
-        <h3><img src={warriorIcon}/> Wojownicy: {warriorList.length}</h3>
+        <h3><img src={warriorIcon}/> Wojownicy: {memberList.filter(member => member.class == 1).length}</h3>
         <div className={styles.classContainer}>
-          {warriorList.map(warrior => <Member key={warrior.id} classType={warrior.class} nick={warrior.nick} lvl={warrior.lvl} lvlaw={warrior.lvlaw}> </Member>)}
+          {memberList.filter(member => member.class == 1).map(filteredMember =>
+            <Member key={filteredMember.id} classType={filteredMember.class} nick={filteredMember.nick} lvl={filteredMember.lvl} lvlaw={filteredMember.lvlaw}> </Member>)}
         </div>
       </div>
 
       <div className={styles.classWrapper}>
-        <h3><img src={archerIcon}/> Łucznicy: {archersList.length}</h3>
+        <h3><img src={archerIcon}/> Łucznicy: {memberList.filter(member => member.class == 2).length}</h3>
         <div className={styles.classContainer}>
-          {archersList.map(archer => <Member key={archer.id} classType={archer.class} nick={archer.nick} lvl={archer.lvl} lvlaw={archer.lvlaw}> </Member>)}
+          {memberList.filter(member => member.class == 2).map(filteredMember =>
+            <Member key={filteredMember.id} classType={filteredMember.class} nick={filteredMember.nick} lvl={filteredMember.lvl} lvlaw={filteredMember.lvlaw}> </Member>)}
         </div>
       </div>
 
       <div className={styles.classWrapper}>
-        <h3><img src={mageIcon}/> Magowie: {magesList.length}</h3>
+        <h3><img src={mageIcon}/> Magowie: {memberList.filter(member => member.class == 3).length}</h3>
         <div className={styles.classContainer}>
-          {magesList.map(mage => <Member key={mage.id} classType={mage.class} nick={mage.nick} lvl={mage.lvl} lvlaw={mage.lvlaw}> </Member>)}
+          {memberList.filter(member => member.class == 3).map(filteredMember =>
+            <Member key={filteredMember.id} classType={filteredMember.class} nick={filteredMember.nick} lvl={filteredMember.lvl} lvlaw={filteredMember.lvlaw}> </Member>)}
         </div>
       </div>
       <div className={styles.classWrapper}>
-        <h3><img src={martialIcon}/> Mistrzowie sztuk walki: {martialArtistsList.length}</h3>
+        <h3><img src={martialIcon}/> Mistrzowie sztuk walki: {memberList.filter(member => member.class == 4).length}</h3>
         <div className={styles.classContainer}>
-          {martialArtistsList.map(martial => <Member key={martial.id} classType={martial.class} nick={martial.nick} lvl={martial.lvl} lvlaw={martial.lvlaw}> </Member>)}
+          {memberList.filter(member => member.class == 4).map(filteredMember =>
+            <Member key={filteredMember.id} classType={filteredMember.class} nick={filteredMember.nick} lvl={filteredMember.lvl} lvlaw={filteredMember.lvlaw}> </Member>)}
         </div>
       </div>
     </section>

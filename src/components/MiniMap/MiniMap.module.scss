@@ -1,0 +1,23 @@
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20%;
+  position: fixed;
+  bottom: 20px;
+  right: 0px;
+  color: #fff;
+  img {
+    width: 70%;
+  }
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  margin: 10px;
+  font-size: 1.5em;
+  border-radius: 20px;
+}

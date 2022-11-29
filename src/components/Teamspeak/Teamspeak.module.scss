@@ -1,0 +1,35 @@
+.teamspeakContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 80px;
+  width: fit-content;
+
+  color: #fff;
+  font-size: 1.6em;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  bottom: 2%;
+  left: 25%;
+  border-radius: 20px;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    text-decoration: underline;
+    color: #fff;
+    margin-left: 5px;
+    height: 100%;
+    border-radius: 20px;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

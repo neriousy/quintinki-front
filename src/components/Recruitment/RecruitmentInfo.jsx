@@ -21,7 +21,7 @@ function RecruitmentInfo(){
 
       </dl>
 
-      <Link to='/kontakt' className={styles.contactButton}> Kontakt </Link>
+      <Link to='/contact' className={styles.contactButton}> Kontakt </Link>
     </div>
   );
 }

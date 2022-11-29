@@ -27,7 +27,7 @@ function Navbar(){
         </li>
         
         <li className={styles.listItem}>
-          <NavLink to='/kontakt' className={(navData) => (navData.isActive ? styles.active : '')}> Kontakt w grze </NavLink> 
+          <NavLink to='/contact' className={(navData) => (navData.isActive ? styles.active : '')}> Kontakt </NavLink> 
         </li>
       </ul>
     </header>

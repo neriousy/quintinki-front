@@ -1,0 +1,43 @@
+.councilContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  width: fit-content;
+  height: fit-content;
+
+  position: fixed;
+  top: 100px;
+  right: 20px;
+
+  padding: 20px;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 30px 9px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+
+  color: #fff;
+  h3 {
+    font-size: 2.4em;
+    text-align: center;
+    text-decoration: underline;
+    margin: 0;
+  }
+}
+
+.councilList {
+  margin: 10px 0 0 0;
+  padding: 10px;
+}
+
+.descriptionTerm {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.descriptionDetails {
+  font-size: 1.3em;
+  margin: 5px 0;
+}

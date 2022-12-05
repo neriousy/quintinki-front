@@ -16,7 +16,7 @@ function MemberList(){
 
 
   const members = async() =>{
-    const response = await fetch('http://localhost:3000/famlist/');
+    const response = await fetch('http://localhost:3000/api/famlist/');
     setMembersList(await response.json());
   };
 

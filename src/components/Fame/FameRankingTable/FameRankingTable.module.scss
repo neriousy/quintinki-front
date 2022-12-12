@@ -1,0 +1,28 @@
+.table {
+  color: #fff;
+  text-align: left;
+  font-size: 1.2em;
+  width: 60%;
+  tr {
+    background-color: rgba(255, 255, 255, 0.05);
+
+    &:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:hover {
+      td {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  th {
+    padding: 15px;
+  }
+
+  td {
+    padding: 15px;
+    min-width: 10%;
+  }
+}

@@ -19,7 +19,7 @@ function Navbar(){
         </li>
 
         <li className={styles.listItem}>
-          <NavLink to='/repa' className={(navData) => (navData.isActive ? styles.active : '')}> Reputacja </NavLink> 
+          <NavLink to='/fame' className={(navData) => (navData.isActive ? styles.active : '')}> Reputacja </NavLink> 
         </li>
 
         <li className={styles.listItem}>

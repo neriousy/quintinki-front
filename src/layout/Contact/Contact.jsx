@@ -10,10 +10,14 @@ function Contact(){
   
   return(
     <>
-      <main>
-        <Council/>
-        <MiniMap/>
-        <Teamspeak/>
+      <main className={styles.main}>
+        <div className={styles.leftContainer}>
+          <Teamspeak/>
+        </div>
+        <div className={styles.rightContainer}>
+          <Council/>
+          <MiniMap/>
+        </div>
       </main>
     </>
   );

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import styles from './Council.module.scss';
 
@@ -10,8 +11,8 @@ function Council(){
   }, []);
 
   const getCouncil = async() =>{
-    const response = await fetch('http://localhost:3000/api/contact/');
-    setCouncil(await response.json());
+    axios.get('http://localhost:3000/api/contact/').then(res => setCouncil(res.data));
+    
   };
 
 

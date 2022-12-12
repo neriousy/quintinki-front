@@ -5,6 +5,7 @@ import archerIcon from '../../../assets/classIcons/archerIcon.png';
 import mageIcon from '../../../assets/classIcons/mageIcon.png';
 import warriorIcon from '../../../assets/classIcons/warriorIcon.png';
 import martialIcon from '../../../assets/classIcons/martialIcon.png';
+import axios from 'axios';
 
 function MemberList(){
   const [memberList, setMembersList] = useState([]);
@@ -16,8 +17,7 @@ function MemberList(){
 
 
   const members = async() =>{
-    const response = await fetch('http://localhost:3000/api/famlist/');
-    setMembersList(await response.json());
+    axios.get('http://localhost:3000/api/famlist/').then(res => setMembersList(res.data));
   };
 
   return(

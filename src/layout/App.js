@@ -19,11 +19,7 @@ function App(){
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/famlist' element={<Famlist/>} />
-        <Route path='/fame'>
-          <Route path="" element={<Fame fromMonth={fromMonth} fromYear={fromYear}/>} />
-          <Route path=":year/:month" element={<Fame useRanking={false} fromMonth={fromMonth} fromYear={fromYear}/>} />
-          <Route path="ranking" element={<Fame useRanking={true}/>} />
-        </Route>
+        <Route path='/fame' element={<Fame/>} />
         <Route path='/contact' element={<Contact/>} />
       </Routes>
     </>

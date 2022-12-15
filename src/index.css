@@ -7,7 +7,6 @@ body {
   max-width: 100%;
   background-repeat: repeat;
   background-attachment: fixed;
-  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {

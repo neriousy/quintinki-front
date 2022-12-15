@@ -6,23 +6,27 @@ import FameProgressRecord from '../FameProgressRecord/FameProgressRecord';
 function FameTable({fromYear, fromMonth}){
   const date = new Date();
   const [fameResults, setFameResults] = useState([]);
+
   let lp = 1;
   let sum = 0;
   let secondDate;
 
+  
   useEffect(() =>{
     getFame();
-
-  }, []);
+  });
 
   const getFame = async() =>{
     await axios.get(`http://localhost:3000/api/fame/progress/${fromYear}/${fromMonth}`)
       .then(res => setFameResults(res.data))
       .catch(function (error) {
-        window.location.replace('/fame'); //awkward redirecting
+        // window.location.replace('/fame'); //awkward redirecting
         return;
       });
   };
+
+
+
 
   function checkDate(fromMonth, fromYear){
     if(fromYear != date.getFullYear() || fromMonth != date.getMonth() + 1){
@@ -60,6 +64,7 @@ function FameTable({fromYear, fromMonth}){
         </tr>
       </tbody>
     </table>
+
   );
   
  

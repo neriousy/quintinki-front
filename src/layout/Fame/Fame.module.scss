@@ -8,18 +8,42 @@
 
 .button {
   box-sizing: border-box;
-  margin: 2px 20px 20px 20px;
+
   padding: 20px;
-  width: 17%;
+  width: 100%;
   border: 0;
   background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-family: inherit;
 
   &:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.4);
   }
+}
+
+.select {
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  background: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.3rem;
+  border: none;
+  cursor: pointer;
+
+  background-size: auto 50%;
+}
+
+option {
+  background: none;
+  color: #000;
+}
+
+.buttonWrapper {
+  margin: 2px 20px 20px 20px;
+  width: 17%;
 }

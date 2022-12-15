@@ -1,35 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FameProgressTable from '../../components/Fame/FameProgressTable/FameProgressTable';
 import FameRankingTable from '../../components/Fame/FameRankingTable/FameRankingTable';
 import styles from './Fame.module.scss';
 import fameBgc from '../../assets/backgrounds/fame.jpg';
-import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
-function Fame({fromMonth, fromYear, useRanking}){
-  
+function Fame(){
+  const date = new Date();
   document.body.style.backgroundImage = `url(${fameBgc})`;
-  const[showRanking, setShowRanking] = useState(useRanking);
-  const[buttonText, setButtonText] = useState(window.location.pathname === '/fame' ? 'Pokaż ranking reputacji' : 'Pokaż miesięczny ranking');
+  const [showRanking, setShowRanking] = useState(false);
+  const [buttonText, setButtonText] = useState(window.location.pathname === '/fame' ? 'Pokaż ranking reputacji' : 'Pokaż miesięczny ranking');
+  const [selectContent, setSelectContent] = useState([]);
+  const [tableName, setTableName] = useState(`fame_${(date.getMonth() + 1).toString()}_${date.getFullYear().toString()}`);
+  const [fromMonth, setFromMonth] = useState((date.getMonth() + 1).toString());
+  const [fromYear, setFromYear] = useState(date.getFullYear().toString());
+  const [disableSelect, setDisableSelect] = useState(false);
+  
+  useEffect(() =>{
+    getTables();
+  }, []);
 
-  let parameters;
-  let useArgs = true;
-
-  try{
-    parameters = useParams();
-    if(parameters.month == undefined || parameters.year == undefined){ throw new Error('No params');}
-  }catch{
-    useArgs = false;
+  function getTables(){
+    axios.get('http://localhost:3000/api/fame/list').then(res => {setSelectContent(res.data), setTableName(res.data[0].table_name);});
   }
 
-  if(useArgs){
-    fromMonth = parameters.month;
-    fromYear = parameters.year;
-  }
+  useEffect(() =>{
+    let split = tableName.split('_');
+    setFromMonth(split[1]);
+    setFromYear(split[2]);  
 
-  function SwitchTable(){
+  }, [tableName]);
+
+
+  function switchTable(){
     setShowRanking(ranking => !ranking);
     setButtonText(buttonText === 'Pokaż ranking reputacji' ? 'Pokaż miesięczny ranking' : 'Pokaż ranking reputacji');
+    setDisableSelect(dis => !dis);
   }
 
 
@@ -40,9 +47,13 @@ function Fame({fromMonth, fromYear, useRanking}){
           ? <FameProgressTable fromMonth={fromMonth} fromYear={fromYear}/>
           : <FameRankingTable/>
         } 
-        <button className={styles.button} onClick={SwitchTable}>{buttonText}</button>
 
-
+        <div className={styles.buttonWrapper}>
+          <button className={styles.button} onClick={switchTable}>{buttonText}</button>
+          <select className={styles.select} value={tableName} onChange={e => setTableName(e.target.value)} disabled={disableSelect}>
+            {selectContent.map(content => <option key={content.id} value={content.table_name}>{content.month_year}</option>)}
+          </select>
+        </div>
       </main>
     </>
   );

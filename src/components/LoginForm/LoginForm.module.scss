@@ -1,0 +1,42 @@
+.form {
+  min-width: 200px;
+  width: 30%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1;
+  }
+
+  input {
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 1.2em;
+    padding: 15px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid #c9c9c9;
+    background-color: rgb(77, 148, 255);
+    color: #fff;
+    text-transform: uppercase;
+    font-family: inherit;
+
+    &:hover {
+      background-color: rgb(40, 127, 224);
+    }
+  }
+}

@@ -1,18 +1,18 @@
 .table {
-  color: #fff;
+  color: #000;
   text-align: left;
   font-size: 1.2em;
   width: 60%;
   tr {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.1);
 
     &:nth-child(odd) {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.15);
     }
 
     &:hover {
       td {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.2);
       }
     }
   }

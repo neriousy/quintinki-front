@@ -8,7 +8,9 @@ import axios from 'axios';
 
 function Fame(){
   const date = new Date();
-  document.body.style.backgroundImage = `url(${fameBgc})`;
+  // document.body.style.backgroundImage = `url(${fameBgc})`;
+  document.body.style.background = 'none';
+  document.body.style.backgroundColor = '#d5d6d8';
   const [showRanking, setShowRanking] = useState(false);
   const [buttonText, setButtonText] = useState(window.location.pathname === '/fame' ? 'Pokaż ranking reputacji' : 'Pokaż miesięczny ranking');
   const [selectContent, setSelectContent] = useState([]);

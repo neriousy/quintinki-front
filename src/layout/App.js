@@ -5,6 +5,7 @@ import Home from './Home/Home';
 import Navbar from './Navbar/Navbar';
 import Contact from './Contact/Contact';
 import Fame from './Fame/Fame';
+import Login from './Login/Login';
 
 function App(){
   const date = new Date();
@@ -21,6 +22,7 @@ function App(){
         <Route path='/famlist' element={<Famlist/>} />
         <Route path='/fame' element={<Fame/>} />
         <Route path='/contact' element={<Contact/>} />
+        <Route path='/login' element={<Login/>} />
       </Routes>
     </>
   );
